@@ -13,13 +13,13 @@ Objetivo: aumento da produtividade ao alocar funcionalidades, antes manuais, em 
 - `Funcionalidade 1`: CRUD de Clientes.
 - `Funcionalidade 2`: CRUD de Pedidos.
 - `Funcionalidade 3`: CRUD de Produtos.
-- `Funcionalidade 3`: CRUD de Estoques.
-- `Funcionalidade 3`: CRUD de Despesas.
-- `Funcionalidade 3`: CRUD de Receitas.
-- `Funcionalidade 3`: Geração de Pedidos utilizando um step-form que engloba informações desde o Cliente até as observações finais do Pedido.
-- `Funcionalidade 3`: Geração de Recibo PDF e encaminhamento para email do cliente com cópia para o email do Usuário do sistema.
-- `Funcionalidade 3`: Gerenciamento visual financeira com gráficos.
-- `Funcionalidade 3`: Gerenciamento de estoque de forma dinâmica.
+- `Funcionalidade 4`: CRUD de Estoques.
+- `Funcionalidade 5`: CRUD de Despesas.
+- `Funcionalidade 6`: CRUD de Receitas.
+- `Funcionalidade 7`: Geração de Pedidos utilizando um step-form que engloba informações desde o Cliente até as observações finais do Pedido.
+- `Funcionalidade 8`: Geração de Recibo PDF e encaminhamento para email do cliente com cópia para o email do Usuário do sistema.
+- `Funcionalidade 9`: Gerenciamento visual financeira com gráficos.
+- `Funcionalidade 10`: Gerenciamento de estoque de forma dinâmica.
 
 
 ## 🚀 Começando
@@ -63,8 +63,8 @@ Mencione as ferramentas que você usou para criar seu projeto
 
 Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
 
-* **Gabriel Barbosa Bizerra** [Gabriel Barbosa Bizerra](https://github.com/GabrielBarbosaBizerra)
-Para a criação do sidebar utilizei o [tutorial](https://www.youtube.com/watch?v=wEfaoAa99XY). Por isso deixo aqui os créditos para o autor do sidebar e os meus agradecimentos.
+* **Gabriel Barbosa Bizerra** - LinkedIn: [Gabriel Barbosa Bizerra](https://www.linkedin.com/in/gabrielbarbosabizerra)
+* Para a criação do sidebar utilizei o [tutorial](https://www.youtube.com/watch?v=wEfaoAa99XY). Por isso deixo aqui os créditos para o autor do sidebar e os meus agradecimentos.
 
 
 ---
