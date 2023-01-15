@@ -1,8 +1,180 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="~/css/simple-calendar.css" />
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    .container{
+        max-width:1288px;
+    }
+    .card{
+        border-radius:15px;
+    }
+</style>
+
+<div class="container-fluid pt-5 px-4">
+    <div class="row g-4">
+        <div class="col-sm-6 col-xl-3 col-lg-6">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4" style="max-width:300px">
+                <i class="fa fa-chart-line fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Pedidos</p>
+                    <h6 class="mb-0">Ontem: 0</h6>
+                    <h6 class="mb-0">Hoje: 0</h6>
+                    <h6 class="mb-0">Amanhã: 0</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3 col-lg-6">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4" style="max-width:300px">
+                <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Entregas</p>
+                    <h6 class="mb-0">Ontem: 0</h6>
+                    <h6 class="mb-0">Hoje: 0</h6>
+                    <h6 class="mb-0">Amanhã: 0</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3 col-lg-6">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4" style="max-width:300px">
+                <i class="fa-regular fa-timer"></i>
+                <i class="fa fa-chart-area fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Estoque</p>
+                    <h6 class="mb-0">Ovo: </h6>
+                    <h6 class="mb-0">Açúcar: </h6>
+                    <h6 class="mb-0">Sacolas: </h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3 col-lg-6">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4" style="max-width:300px">
+                <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Pedidos site</p>
+                    <h6 class="mb-0">Ontem: 0</h6>
+                    <h6 class="mb-0">Hoje: 0</h6>
+                    <h6 class="mb-0">Total: 0</h6>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<br />
+<div class="row g-4">
+    <div class="col-sm-6 col-xl-4 col-lg-4 p-4">
+        <div class="bg-light rounded">
+            <div id="chart_div"></div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xl-4 col-lg-4 p-4">
+        <div id="calendario" class="calendar-container bg-light rounded" style="height:300px;"></div>
+    </div>
+
+    <div class="col col-lg-4 col-xl-4 p-4">
+        <div class="card rounded bg-light">
+            <div class="card-body p-4" style="height:300px;">
+                <p class="mb-2">
+                    <span class="h2 me-2">Tarefas</span>
+                </p>
+                <p class="text-muted pb-2">@DateTime.Now</p>
+                <ul class="list-group rounded-0">
+                    <li class="list-group-item border-0 d-flex align-items-center ps-0">
+                        <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." checked />
+                        <s>Comprar Ovos</s>
+                    </li>
+                    <li class="list-group-item border-0 d-flex align-items-center ps-0">
+                        <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
+                        Fazer encomenda da Cliente Tal
+                    </li>
+                    <li class="list-group-item border-0 d-flex align-items-center ps-0">
+                        <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
+                        Entrar em contato com a Cliente Tal
+                    </li>
+                    <li class="list-group-item border-0 d-flex align-items-center ps-0">
+                        <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." />
+                        Recuperar venda da Cliente Tal
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+
+<script src="~/js/jquery.simple-calendar.js"></script>
+
+<script type="text/javascript">
+
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', { 'packages': ['corechart'] });
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+    function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+            ['Tradicional', 3],
+            ['Pirulitos', 1],
+            ['Rosetas', 1],
+            ['Saborizados', 1],
+            ['Coloridos', 2]
+        ]);
+
+        // Set chart options
+        var options = {
+            'title': 'Suspiros mais pedidos',
+            'width': 400,
+            'height': 300
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
+
+    //Calendário
+    var $calendar;
+    let container = $("#calendario").simpleCalendar({
+            fixedStartDay: 0, // begin weeks by sunday
+            disableEmptyDetails: true,
+            events: [
+                // generate new event after tomorrow for one hour
+                {
+                    startDate: new Date(new Date().setHours(new Date().getHours() + 24)).toDateString(),
+                    endDate: new Date(new Date().setHours(new Date().getHours() + 25)).toISOString(),
+                    summary: 'Visit of the Eiffel Tower'
+                },
+                // generate new event for yesterday at noon
+                {
+                    startDate: new Date(new Date().setHours(new Date().getHours() - new Date().getHours() - 12, 0)).toISOString(),
+                    endDate: new Date(new Date().setHours(new Date().getHours() - new Date().getHours() - 11)).getTime(),
+                    summary: 'Restaurant'
+                },
+                // generate new event for the last two days
+                {
+                    startDate: new Date(new Date().setHours(new Date().getHours() - 48)).toISOString(),
+                    endDate: new Date(new Date().setHours(new Date().getHours() - 24)).getTime(),
+                    summary: 'Visit of the Louvre'
+                }
+            ],
+
+        });
+        $calendar = container.data('plugin_simpleCalendar');
+
+</script>
+
+

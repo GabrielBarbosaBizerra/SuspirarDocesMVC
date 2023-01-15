@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Web;
 
 namespace SuspirarDocesMVC.Controllers
 {
@@ -17,7 +18,7 @@ namespace SuspirarDocesMVC.Controllers
         [HttpPost]
         public IActionResult Logar(string email, string senha)
         {
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }
