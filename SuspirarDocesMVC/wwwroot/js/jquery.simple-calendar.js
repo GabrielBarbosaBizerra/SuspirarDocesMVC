@@ -7,8 +7,8 @@
   // Create the defaults once
   var pluginName = "simpleCalendar",
     defaults = {
-      months: ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'], //string of months starting from january
-      days: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'], //string of days starting from sunday
+      months: ['janeiro', 'fevereiro', 'marco', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'], //string of months starting from january
+      days: ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sabado'], //string of days starting from sunday
       displayYear: true, // display year in header
       fixedStartDay: true, // Week begin always by monday or by day set by number 0 = sunday, 7 = saturday, false = month always begin by first day of the month
       displayEvent: true, // display existing event
@@ -145,7 +145,7 @@
       body.append(thead);
       body.append(tbody);
 
-      var eventContainer = $('<div class="event-container"><div class="close"></div><div class="event-wrapper"></div></div>');
+        var eventContainer = $('<div class="event-container"><div class=""></div><div class="event-wrapper"></div></div>');
 
       calendar.append(body);
       calendar.append(eventContainer);
@@ -200,9 +200,9 @@
         var endDate = new Date(event.endDate);
         var $event = $('' +
           '<div class="event">' +
-          ' <div class="event-hour">' + startDate.getHours() + ':' + (startDate.getMinutes() < 10 ? '0' : '') + startDate.getMinutes() + '</div>' +
-          ' <div class="event-date">' + plugin.formatDateEvent(startDate, endDate) + '</div>' +
-          ' <div class="event-summary">' + event.summary + '</div>' +
+          '<div class="event-hour">' + startDate.getHours() + ':' + (startDate.getMinutes() < 10 ? '0' : '') + startDate.getMinutes() + '</div>' +
+          '<div class="event-date">' + plugin.formatDateEvent(startDate, endDate) + '</div>' +
+          '<div class="event-summary">' + event.summary + '</div>' +
           '</div>');
 
         $event.data( 'event', event );
