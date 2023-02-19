@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Cliente\Criar.cshtml" />
     <Content Remove="wwwroot\js\main.js" />
   </ItemGroup>
 
